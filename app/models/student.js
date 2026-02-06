@@ -1,9 +1,25 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
-aggrigates: [
-    {
-        type: 'count',
-        field: 'id',
-        name: 'total'
-    }
-]
+ const StudentSchema=new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+   phone:{
+       type: String,
+       required: true
+   }   
+ },{
+    timestamps: true,
+    versionKey: false
+ })
+
+
+ const StudentModel=mongoose.model('student', StudentSchema)
+ module.exports=StudentModel
